@@ -31,6 +31,8 @@ def create_app():
     @app.route("/", methods=['POST'])
     def talkToGemma():
         print("Beginning RAG call")
+        print("Using OpenAI API Base: " + OPENAI_API_BASE)
+        print("Using image: " + request.json['image'])
         prompt = request.json['message']
         prompt = unquote(prompt)
 
@@ -51,7 +53,7 @@ def create_app():
                     "type": "text",
                     "text": "You are a professional interior designer, give me a detailed decsription of the style of the room in this image",
                 },
-                {"type": "image_url", "image_url": request.json['image']},
+                {"type": "image_url", "image_url": {"url": request.json['image']}},
             ]
         )
         response = llm_vision.invoke([message])
