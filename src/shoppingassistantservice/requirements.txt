@@ -132,6 +132,7 @@ langchain-core==0.3.75
 langchain-google-alloydb-pg==0.13.0
     # via -r requirements.in
 langchain-google-genai==2.1.10
+langchain-openai
     # via -r requirements.in
 langchain-postgres==0.0.15
     # via langchain-google-alloydb-pg
